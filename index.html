@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unique Thanks</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #3498db, #e74c3c); /* Mixed color background */
+      font-family: 'Arial', sans-serif;
+      margin: 0; /* Remove default margin */
+    }
+
+    #name-input, #thanks-container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    #name-input {
+      background-color: #3498db;
+    }
+
+    #thanks-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #thanks-message {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #unique-animation {
+      animation: rotateScale 5s infinite;
+    }
+
+    @keyframes rotateScale {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="name-input">
+    <div id="name-form">
+      <label for="name-field">Enter Your Name:</label>
+      <input type="text" id="name-field" placeholder="Your Name">
+      <button id="submit-button" onclick="checkName()">Submit</button>
+    </div>
+  </div>
+
+  <div id="thanks-container" onclick="showThanks()">
+    <p id="thanks-message">A special <span id="unique-animation">thank you Dear ARADHANA😊!</span></p>
+  </div>
+
+  <script>
+    function checkName() {
+      var enteredName = document.getElementById("name-field").value;
+      var thanksContainer = document.getElementById("thanks-container");
+
+      if (enteredName.trim().toLowerCase() === "aradhana") {
+        thanksContainer.style.backgroundColor = "#9e5cc7"; // Green background if the name is Aradhana
+        document.getElementById("name-input").style.display = "none";
+        thanksContainer.style.display = "block";
+      } else {
+        thanksContainer.style.backgroundColor = "#e74c3c"; // Red background if the name is not Aradhana
+        alert("Honest girl name is required.");
+      }
+    }
+
+    function showThanks() {
+      var thanksMessage = document.getElementById("thanks-message");
+      thanksMessage.innerHTML = "Another special <span id='unique-animation'>thank you!</span>";
+    }
+  </script>
+</body>
+</html>
